@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÉXITOS PRODIGY</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <header>
+        <section>
+            <img src="Promoción.JPG" alt="">
+
+        </section>
+        <h2>"FELIZ 2024"</h2>
+        <h1>NO DUDES EN DEJAR TU HUELLA</h1>
+        
+        <h3>¡ÉXITOS PROMO!</h3>
+        <section >
+            <a  href=""><img  class="imglink"src="Birrete.png" alt=""></a> 
+        </section>
+       
+     
+    </header>
+  <!-- Script para mostrar automáticamente los birretes -->
+  <script>
+    function createHeartAutomatically() {
+        let body = document.querySelector('body');
+
+        // Determinar la cantidad actual de birretes a mostrar
+        let birretesToShow = 4;
+
+        // Crear birretes
+        for (let i = 0; i < birretesToShow; i++) {
+            createBirrete();
+           
+        }
+
+        // Cambiar la cantidad de birretes para la siguiente vez
+    
+
+        // Repetir la creación de birretes automáticamente cada 2 segundos
+        setTimeout(createHeartAutomatically, 1000);
+
+    }
+
+    function createBirrete() {
+        let body = document.querySelector('body');
+
+        // Crear un birrete en una posición aleatoria
+        let x = Math.random() * window.innerWidth;
+        let y = Math.random() * window.innerHeight;
+
+        let heart = document.createElement('span');
+        heart.style.left = x + 'px';
+        heart.style.top = y + 'px';
+
+        let size = Math.random() * 80;
+        heart.style.width = 20 + size + 'px';
+        heart.style.height = 20 + size + 'px';
+        let transformValue = Math.random() * 80;
+        heart.style.transform = 'rotate(' + transformValue + 'deg)';
+        body.appendChild(heart);
+
+        // Eliminar el birrete después de 1000 milisegundos (1 segundo)
+        setTimeout(function () {
+            heart.remove();
+        }, 1000);
+    }
+
+    // Iniciar la creación automática de birretes al cargar la página
+    window.addEventListener('load', createHeartAutomatically);
+</script>
+</body>
+</html>
